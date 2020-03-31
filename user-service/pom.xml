@@ -14,6 +14,10 @@
 
     <properties>
         <start-class>com.herval.user-service.UserServiceApplication</start-class>
+        <docker.registry.name>localhost:5000</docker.registry.name>
+        <docker.repository.name>${docker.registry.name}HervalMata/${project.artifactId}</docker.repository.name>
+        <docker.host.address>192.168.43.194</docker.host.address>
+        <docker.port>8080</docker.port>
     </properties>
 
     <dependencies>
@@ -42,21 +46,79 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.junit.vintage</groupId>
-                    <artifactId>junit-vintage-engine</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
     </dependencies>
 
     <build>
         <plugins>
             <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
+                <groupId>org.jolokia</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>0.13.9</version>
+                <configuration>
+                    <images>
+                        <image>
+                            <name>${docker.repository.name}:${project.version}</name>
+                            <alias>${project.artifactId}</alias>
+                            <build>
+                                <from>jdk:11-jre</from>
+                                <maintainer>sourabhh</maintainer>
+                                <assembly>
+                                    <descriptor>docker-assembly.xml</descriptor>
+                                </assembly>
+                                <ports>
+                                    <port>${docker.port}</port>
+                                </ports>
+                                <cmd>
+                                    <shell>java -Dspring.profiles.active="docker" -jar \
+                                        /maven/user-service.jar server \
+                                        /maven/docker-config.yml</shell>
+                                </cmd>
+                            </build>
+                            <run>
+                                <namingStrategy>alias</namingStrategy>
+                                <ports>
+                                    <port>${docker.port}:8080</port>
+                                </ports>
+                                <wait>
+                                    <http><url>http://${docker.host.address}:${docker.port}/v1/user/1</url></http>
+                                    <time>500000</time>
+                                </wait>
+                                <log>
+                                    <prefix>${project.artifactId}</prefix>
+                                    <color>cyan</color>
+                                </log>
+                            </run>
+                        </image>
+                    </images>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <configuration>
+                    <!--suppress UnresolvedMavenProperty -->
+                    <phase>integration-test</phase>
+                    <groups>com.herval.userservice.resources.docker.DockerIT</groups>
+                    <systemPropertyVariables>
+                        <service.url>http://${docker.host.address}:${docker.port}</service.url>
+                    </systemPropertyVariables>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>integration-test</goal>
+                            <goal>verify</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <excludedGroups>com.herval.userservice.resources.docker.DockerIT</excludedGroups>
+                </configuration>
             </plugin>
         </plugins>
     </build>
