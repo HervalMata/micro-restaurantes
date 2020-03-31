@@ -13,7 +13,7 @@
     <description>Serviço de usuário do microserviço</description>
 
     <properties>
-        <java.version>1.8</java.version>
+        <start-class>com.herval.user-service.UserServiceApplication</start-class>
     </properties>
 
     <dependencies>
