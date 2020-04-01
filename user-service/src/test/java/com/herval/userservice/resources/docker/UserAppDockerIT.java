@@ -1,4 +1,4 @@
-package com.herval.userservice.resources;
+package com.herval.userservice.resources.docker;
 
 import org.junit.Test;
 import org.junit.experimental.categories.Category;

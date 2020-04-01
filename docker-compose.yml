@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+  user-service:
+    image: localhost:5000/sourabhh/user-service:0.0.1-SNAPSHOT
+    ports:
+      - "8002:8080"
