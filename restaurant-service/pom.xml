@@ -54,7 +54,7 @@
                                 </ports>
                                 <cmd>
                                     <shell>java -Dspring.profiles.active="docker" -jar \
-                                        /maven/user-service.jar server \
+                                        /maven/restaurant-service.jar server \
                                         /maven/docker-config.yml</shell>
                                 </cmd>
                             </build>
