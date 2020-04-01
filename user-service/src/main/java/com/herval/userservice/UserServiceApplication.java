@@ -1,13 +1,13 @@
-package com.herval.microrestaurantes;
+package com.herval.userservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MicroRestaurantesApplication {
+public class UserServiceApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(MicroRestaurantesApplication.class, args);
+        SpringApplication.run(UserServiceApplication.class, args);
     }
 
 }
