@@ -1,21 +1,21 @@
 package com.herval.userservice.common;
 
-public class DuplicateUserException extends Exception {
+public class InvalidUserException extends Exception {
 
     private static final long serialVerionUID = -8890080495441147845L;
 
     private String message;
     private Object[] args;
 
-    public DuplicateUserException(String arg) {
+    public InvalidUserException(String arg) {
         this.message = String.format("%s is an invalid user.", arg);
     }
 
-    public DuplicateUserException(Object[] args) {
+    public InvalidUserException(Object[] args) {
         this.args = args;
     }
 
-    public DuplicateUserException(String message, Object[] args) {
+    public InvalidUserException(String message, Object[] args) {
         this.message = message;
         this.args = args;
     }
