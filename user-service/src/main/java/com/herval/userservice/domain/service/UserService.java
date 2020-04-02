@@ -9,9 +9,9 @@ import java.util.Map;
 
 public interface UserService {
 
-    public void add(User booking) throws Exception;
+    public void add(User user) throws Exception;
 
-    public void update(User booking) throws Exception;
+    public void update(User user) throws Exception;
 
     public void delete(String id) throws Exception;
 

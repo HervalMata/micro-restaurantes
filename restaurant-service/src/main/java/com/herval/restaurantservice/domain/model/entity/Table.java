@@ -1,3 +1,8 @@
+package com.herval.restaurantservice.domain.model.entity;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.math.BigInteger;
 
 public class Table extends BaseEntity<BigInteger> {
 

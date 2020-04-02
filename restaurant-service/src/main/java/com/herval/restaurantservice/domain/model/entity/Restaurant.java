@@ -31,6 +31,14 @@ public class Restaurant extends BaseEntity<String> {
         return tables;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
     @Override
     public String toString() {
         return String.format("{id: %s, name: %s, address: %s, tables: %s}", this.getId(), this.getName(), this.getAddress(), this.getTables());
