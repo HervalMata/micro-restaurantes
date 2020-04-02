@@ -13,7 +13,7 @@
     <description>Serviço de restaurantes do microserviço</description>
 
 	<properties>
-		<start-class>com.herval.restaurant-service.RestaurantServiceApplication</start-class>
+		<start-class>com.herval.restaurant-service.RestaurantApplication</start-class>
         <docker.registry.name>localhost:5000</docker.registry.name>
         <docker.repository.name>${docker.registry.name}sourabhh/${project.artifactId}</docker.repository.name>
         <docker.host.address>192.168.43.194</docker.host.address>
