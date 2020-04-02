@@ -7,7 +7,7 @@
         <artifactId>micro-restaurantes</artifactId>
         <version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<groupId>retaurant-service</groupId>
+	<artifactId>retaurant-service</artifactId>
 	<packaging>jar</packaging>
     <name>online-table-reservation:restaurant-service</name>
     <description>Serviço de restaurantes do microserviço</description>
@@ -30,7 +30,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
         </dependency>
-	</dependencies>
+    </dependencies>
 
 	<build>
         <plugins>
