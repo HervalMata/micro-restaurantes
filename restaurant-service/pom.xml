@@ -1,47 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>com.herval</groupId>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.herval</groupId>
         <artifactId>micro-restaurantes</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-    </parent>
-    <artifactId>user-service</artifactId>
-    <packaging>jar</packaging>
-    <name>online-table-reservation:user-service</name>
-    <description>Serviço de usuário do microserviço</description>
+	</parent>
+	<artifactId>retaurant-service</artifactId>
+	<packaging>jar</packaging>
+    <name>online-table-reservation:restaurant-service</name>
+    <description>Serviço de restaurantes do microserviço</description>
 
-    <properties>
-        <start-class>com.herval.user-service.UserServiceApplication</start-class>
+	<properties>
+		<start-class>com.herval.restaurant-service.RestaurantApplication</start-class>
         <docker.registry.name>localhost:5000</docker.registry.name>
         <docker.repository.name>${docker.registry.name}sourabhh/${project.artifactId}</docker.repository.name>
         <docker.host.address>192.168.43.194</docker.host.address>
         <docker.port>8080</docker.port>
-    </properties>
+	</properties>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-annotations</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.datatype</groupId>
-            <artifactId>jackson-datatype-jsr310</artifactId>
-        </dependency>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -49,7 +32,7 @@
         </dependency>
     </dependencies>
 
-    <build>
+	<build>
         <plugins>
             <plugin>
                 <groupId>org.jolokia</groupId>
@@ -71,7 +54,7 @@
                                 </ports>
                                 <cmd>
                                     <shell>java -Dspring.profiles.active="docker" -jar \
-                                        /maven/user-service.jar server \
+                                        /maven/restaurant-service.jar server \
                                         /maven/docker-config.yml</shell>
                                 </cmd>
                             </build>
