@@ -7,7 +7,7 @@ spring:
 
 # HTTP Server
 server:
-  port: 2224 # HTTP (Tomcat) port
+  port: 2223 # HTTP (Tomcat) port
 
 ---
 # For deployment in Docker containers
