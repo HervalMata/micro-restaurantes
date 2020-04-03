@@ -1,4 +1,4 @@
-package com.herval.booking.domain.entity;
+package com.herval.booking.domain.model.entity;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -22,6 +22,10 @@ public class Booking extends BaseEntity<String> {
 
     private Booking(String id, String name) {
         super(id, name);
+    }
+
+    public static Booking getDummyBooking() {
+        return new Booking(null, null);
     }
 
     public String getRestaurantId() {

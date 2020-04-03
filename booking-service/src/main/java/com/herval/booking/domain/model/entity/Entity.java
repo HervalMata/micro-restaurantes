@@ -1,4 +1,4 @@
-package com.herval.booking.domain.entity;
+package com.herval.booking.domain.model.entity;
 
 public abstract class Entity<T> {
 

@@ -1,4 +1,4 @@
-package com.herval.booking.domain.entity;
+package com.herval.booking.domain.model.entity;
 
 public abstract class BaseEntity<T> extends Entity<T> {
 
