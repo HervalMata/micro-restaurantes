@@ -1,13 +1,13 @@
 # Spring properties
 spring:
   application:
-    name: user-service # Service registers under this name
+    name: booking-service # Service registers under this name
   messages:
     fallback-to-system-locale: false
 
 # HTTP Server
 server:
-  port: 2223 # HTTP (Tomcat) port
+  port: 2224 # HTTP (Tomcat) port
 
 ---
 # For deployment in Docker containers
