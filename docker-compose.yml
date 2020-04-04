@@ -1,6 +1,11 @@
 version: '3'
 
 services:
+  config-service:
+    image: localhost:5000/sourabhh/config-service:0.0.1-SNAPSHOT
+    ports:
+      - "8888:8888"
+      -
   user-service:
     image: localhost:5000/sourabhh/user-service:0.0.1-SNAPSHOT
     ports:
