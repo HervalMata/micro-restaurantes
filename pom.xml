@@ -26,6 +26,7 @@
         <module>user-service</module>
         <module>restaurant-service</module>
         <module>booking-service</module>
+        <module>config-server</module>
     </modules>
 
     <dependencyManagement>
@@ -53,9 +54,9 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
-                    <release>8</release>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <release>11</release>
+                    <source>1.11</source>
+                    <target>1.11</target>
                     <!--suppress UnresolvedMavenProperty -->
                     <executable>${JAVA_HOME}/bin/javac</executable>
                     <showDeprecation>true</showDeprecation>
